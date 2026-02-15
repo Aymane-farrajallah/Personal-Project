@@ -4,12 +4,14 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 import projet.personalproject.Enums.Domaine;
 import java.util.Date;
 
 @Entity
 @AllArgsConstructor
+@Data
 @NoArgsConstructor
 public class Project {
 

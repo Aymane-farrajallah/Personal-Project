@@ -5,4 +5,5 @@ import projet.personalproject.Enums.Department;
 @Data
 public class ProfessorDTO extends UsersDTO {
     public Department department;
+    public String rank;
 }

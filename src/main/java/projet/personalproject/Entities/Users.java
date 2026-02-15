@@ -1,12 +1,13 @@
 package projet.personalproject.Entities;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 import projet.personalproject.Enums.Sex;
 import java.util.Date;
 
 
-@Entity @AllArgsConstructor @NoArgsConstructor
+@Entity @AllArgsConstructor @NoArgsConstructor @Data
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Users {
 
