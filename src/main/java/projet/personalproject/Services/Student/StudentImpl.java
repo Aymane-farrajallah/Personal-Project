@@ -17,7 +17,7 @@ public class StudentImpl implements StudentService {
     public StudentMappers studentMappers;
 
     @Override
-    public StudentDTO createStudentDTO(String Major, Department department) {
+    public StudentDTO createStudent(String Major, Department department) {
 
         Student student = new Student();
         student.setId((int)(Math.random()*100));

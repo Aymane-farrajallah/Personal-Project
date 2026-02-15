@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import projet.personalproject.DTOS.ProfessorDTO;
 import projet.personalproject.Entities.Professor;
+import projet.personalproject.Entities.Users;
 import projet.personalproject.Enums.Department;
 import projet.personalproject.Mappers.ProfessorMappers;
 import projet.personalproject.Repositories.UsersRepository;
