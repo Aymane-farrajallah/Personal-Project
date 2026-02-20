@@ -18,4 +18,6 @@ public class Professor extends Users {
     public String Professor_rank;
     @OneToMany(mappedBy = "professor")
     public List<Student> student;
+    @OneToMany(mappedBy = "professor")
+    public List<Project>  project;
 }

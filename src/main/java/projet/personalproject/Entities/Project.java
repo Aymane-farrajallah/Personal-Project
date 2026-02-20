@@ -21,4 +21,10 @@ public class Project {
     public String description;
     @Enumerated(EnumType.STRING)
     public Domaine domaine;
+    @ManyToOne
+    @JoinColumn(name = "professor_id")
+    public Professor professor;
+    @ManyToOne
+    @JoinColumn(name = "student_id")
+    public Student student;
 }

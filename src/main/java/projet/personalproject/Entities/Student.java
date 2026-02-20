@@ -7,6 +7,7 @@ import projet.personalproject.Enums.Department;
 
 import java.util.List;
 
+
 @Entity
 @AllArgsConstructor
 @Data
@@ -19,4 +20,7 @@ public class Student extends Users {
     @ManyToOne
     @JoinColumn(name = "professor_id")
     public Professor professor;
+    @OneToMany(mappedBy = "professor")
+    @JoinColumn(name = "project_name")
+    public List<Project> project;
 }

@@ -32,8 +32,7 @@ public class UserImpl implements UserService {
         Users users = usersRepository.findById(id).
                 orElseThrow(()->new UserNotFoundException("User Not Found"));
 
-        if(users instanceof Professor){
-            Professor professor = (Professor) users;
+        if(users instanceof Professor professor){
             return professorMappers.fromProfessor(professor);
         }else{
             Student student = (Student) users;
