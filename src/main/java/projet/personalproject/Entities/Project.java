@@ -1,12 +1,11 @@
 package projet.personalproject.Entities;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
 import projet.personalproject.Enums.Domaine;
+
 import java.util.Date;
 
 @Entity
@@ -15,9 +14,11 @@ import java.util.Date;
 @NoArgsConstructor
 public class Project {
 
+    @CreationTimestamp
     public Date date;
     @Id
     public String projectName;
     public String description;
+    @Enumerated(EnumType.STRING)
     public Domaine domaine;
 }

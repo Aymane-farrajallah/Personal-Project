@@ -1,12 +1,11 @@
 package projet.personalproject.Entities;
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.DiscriminatorValue;
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import projet.personalproject.Enums.Department;
+
+import java.util.List;
 
 @Entity
 @Data
@@ -14,8 +13,9 @@ import projet.personalproject.Enums.Department;
 @NoArgsConstructor
 @DiscriminatorValue(value = "Pr")
 public class Professor extends Users {
+    @Enumerated(EnumType.STRING)
     public Department department;
-    public String rank;
-    @ManyToOne(cascade = CascadeType.ALL)
-    public Student student;
+    public String Professor_rank;
+    @OneToMany(mappedBy = "professor")
+    public List<Student> student;
 }

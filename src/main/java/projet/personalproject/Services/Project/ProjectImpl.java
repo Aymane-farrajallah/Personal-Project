@@ -38,10 +38,17 @@ public class ProjectImpl implements ProjectService {
     }
 
     @Override
-    public ProjectDTO updateProject(ProjectDTO projectDTO){
+    public ProjectDTO getProjectByName(String projectName) throws ProjectNotFoundException{
+        Project project = projectRepository.findById(projectName).
+                orElseThrow(()-> new ProjectNotFoundException("Project not found"));
+        return projectMappers.fromProject(project);
+    }
+
+    @Override
+    public ProjectDTO updateProject(ProjectDTO projectDTO) {
         Project project = projectMappers.fromProjectDTO(projectDTO);
-        Project updatedProject = projectRepository.save(project);
-        return projectMappers.fromProject(updatedProject);
+        Project createdProject = projectRepository.save(project);
+        return projectMappers.fromProject(createdProject);
     }
 
     @Override

@@ -6,12 +6,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import projet.personalproject.DTOS.ProfessorDTO;
 import projet.personalproject.Entities.Professor;
-import projet.personalproject.Entities.Users;
-import projet.personalproject.Enums.Department;
+import projet.personalproject.Exceptions.ProfessorNotFoundException;
 import projet.personalproject.Mappers.ProfessorMappers;
 import projet.personalproject.Repositories.UsersRepository;
-
-import java.util.List;
 
 
 @Service
@@ -22,15 +19,17 @@ public class ProfessorImpl implements ProfessorService {
     private ProfessorMappers professorMappers;
 
     @Override
-    public ProfessorDTO createProfessor(String Rank , Department department) {
+    public ProfessorDTO createProfessor(ProfessorDTO professorDTO) {
         Professor professor = new Professor();
-            professor.setId((int) (Math.random() * 9000));
-            professor.setFirstName(professor.getFirstName());
-            professor.setLastName(professor.getLastName());
-            professor.setEmail(professor.getEmail());
-            professor.setPassword(professor.getPassword());
-            professor.setDepartment(department);
-            professor.setRank(Rank);
+            professor.setFirstName(professorDTO.getFirstName());
+            professor.setLastName(professorDTO.getLastName());
+            professor.setEmail(professorDTO.getEmail());
+            professor.setPassword(professorDTO.getPassword());
+            professor.setDepartment(professorDTO.getDepartment());
+            professor.setSex(professorDTO.getSex());
+            professor.setBirthdate(professorDTO.getBirthdate());
+            professor.setPhoneNum(professorDTO.getPhoneNum());
+            professor.setProfessor_rank(professorDTO.getProfessor_rank());
             Professor createdProfessor = usersRepository.save(professor);
         return professorMappers.fromProfessor(createdProfessor);
     }

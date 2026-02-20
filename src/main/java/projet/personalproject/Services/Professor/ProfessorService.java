@@ -1,8 +1,8 @@
 package projet.personalproject.Services.Professor;
 
 import projet.personalproject.DTOS.ProfessorDTO;
-import projet.personalproject.Enums.Department;
+import projet.personalproject.Exceptions.ProfessorNotFoundException;
 
 public interface ProfessorService {
-    public ProfessorDTO createProfessor(String Major , Department department);
+    ProfessorDTO createProfessor(ProfessorDTO professorDTO);
 }

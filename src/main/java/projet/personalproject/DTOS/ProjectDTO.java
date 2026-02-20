@@ -1,6 +1,8 @@
 package projet.personalproject.DTOS;
+
 import lombok.Data;
 import projet.personalproject.Enums.Domaine;
+
 import java.util.Date;
 
 @Data

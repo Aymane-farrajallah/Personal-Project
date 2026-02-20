@@ -17,16 +17,18 @@ public class StudentImpl implements StudentService {
     public StudentMappers studentMappers;
 
     @Override
-    public StudentDTO createStudent(String Major, Department department) {
+    public StudentDTO createStudent(StudentDTO studentDTO) {
 
         Student student = new Student();
-        student.setId((int)(Math.random()*100));
-        student.setLastName(student.getLastName());
-        student.setFirstName(student.getFirstName());
-        student.setEmail(student.getEmail());
-        student.setPassword(student.getPassword());
-        student.setMajor(Major);
-        student.setDepartment(department);
+        student.setLastName(studentDTO.getLastName());
+        student.setFirstName(studentDTO.getFirstName());
+        student.setEmail(studentDTO.getEmail());
+        student.setPassword(studentDTO.getPassword());
+        student.setMajor(studentDTO.getMajor());
+        student.setSex(studentDTO.getSex());
+        student.setBirthdate(studentDTO.getBirthdate());
+        student.setPhoneNum(studentDTO.getPhoneNum());
+        student.setDepartment(studentDTO.getDepartment());
         Student createdStudent = usersRepository.save(student);
 
         return studentMappers.fromStudent(createdStudent);

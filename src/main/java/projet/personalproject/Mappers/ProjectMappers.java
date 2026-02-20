@@ -15,7 +15,10 @@ public class ProjectMappers {
     }
     public Project fromProjectDTO(ProjectDTO projectDTO){
         Project project = new Project();
-            BeanUtils.copyProperties(projectDTO,project);
+            project.setProjectName(projectDTO.getProjectName());
+            project.setDescription(projectDTO.getDescription());
+            project.setDomaine(projectDTO.getDomaine());
+            project.setDate(projectDTO.getDate());
         return project;
     }
 }
