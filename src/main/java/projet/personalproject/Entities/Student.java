@@ -21,6 +21,5 @@ public class Student extends Users {
     @JoinColumn(name = "professor_id")
     public Professor professor;
     @OneToMany(mappedBy = "professor")
-    @JoinColumn(name = "project_name")
     public List<Project> project;
 }

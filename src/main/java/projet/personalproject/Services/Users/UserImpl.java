@@ -57,6 +57,7 @@ public class UserImpl implements UserService {
         usersRepository.delete(user);
     }
 
+    @Override
     public UsersDTO updateUser(Integer id, UsersDTO dto) {
 
         Users existing = usersRepository.findById(id)

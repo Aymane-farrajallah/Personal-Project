@@ -1,8 +1,5 @@
 package projet.personalproject.DTOS;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.Size;
+
 import lombok.Data;
 import projet.personalproject.Enums.Sex;
 import java.util.Date;

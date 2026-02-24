@@ -5,9 +5,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import projet.personalproject.DTOS.StudentDTO;
 import projet.personalproject.Entities.Student;
-import projet.personalproject.Enums.Department;
+import projet.personalproject.Entities.Users;
 import projet.personalproject.Mappers.StudentMappers;
 import projet.personalproject.Repositories.UsersRepository;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 @Transactional
@@ -33,4 +36,16 @@ public class StudentImpl implements StudentService {
 
         return studentMappers.fromStudent(createdStudent);
     }
+
+    @Override
+    public List<StudentDTO> getStudents(){
+        List<Users> users = usersRepository.findAll();
+        List<StudentDTO> studentDTO = new ArrayList<>();
+        for(Users user : users){
+            if(user instanceof Student student){
+                studentDTO.add(studentMappers.fromStudent(student));
+            }
+        }
+            return studentDTO;
+        }
 }
