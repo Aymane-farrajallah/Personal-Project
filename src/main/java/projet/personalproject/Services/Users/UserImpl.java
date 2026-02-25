@@ -51,13 +51,6 @@ public class UserImpl implements UserService {
     }
 
     @Override
-    public void deleteUser(Integer id) throws UserNotFoundException {
-        Users user = usersRepository.findById(id)
-                .orElseThrow(()-> new UserNotFoundException("User Not Found for Delete"));
-        usersRepository.delete(user);
-    }
-
-    @Override
     public UsersDTO updateUser(Integer id, UsersDTO dto) {
 
         Users existing = usersRepository.findById(id)

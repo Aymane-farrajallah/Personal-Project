@@ -17,9 +17,11 @@ public class Student extends Users {
     @Enumerated(EnumType.STRING)
     public Department department;
     public String Major;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "professor_id")
     public Professor professor;
     @OneToMany(mappedBy = "professor")
     public List<Project> project;
+    @OneToMany(mappedBy = "student")
+    public List<ProjectApplication> projectApplication;
 }

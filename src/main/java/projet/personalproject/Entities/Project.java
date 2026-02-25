@@ -7,6 +7,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import projet.personalproject.Enums.Domaine;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @AllArgsConstructor
@@ -21,10 +22,12 @@ public class Project {
     public String description;
     @Enumerated(EnumType.STRING)
     public Domaine domaine;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "professor_id")
     public Professor professor;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "student_id")
     public Student student;
+    @OneToMany(fetch = FetchType.LAZY , mappedBy = "project")
+    public List<ProjectApplication> projectApplication;
 }

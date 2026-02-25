@@ -16,8 +16,8 @@ public class Professor extends Users {
     @Enumerated(EnumType.STRING)
     public Department department;
     public String Professor_rank;
-    @OneToMany(mappedBy = "professor")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "professor")
     public List<Student> student;
-    @OneToMany(mappedBy = "professor")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "professor")
     public List<Project>  project;
 }

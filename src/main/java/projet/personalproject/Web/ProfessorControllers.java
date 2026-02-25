@@ -17,8 +17,6 @@ import java.util.List;
 @AllArgsConstructor
 public class ProfessorControllers {
     private ProfessorService professorService;
-    private UsersRepository usersRepository;
-    private ProfessorMappers professorMappers;
 
     @PostMapping("add-prof")
     public ProfessorDTO addProf(@RequestBody ProfessorDTO professorDTO){

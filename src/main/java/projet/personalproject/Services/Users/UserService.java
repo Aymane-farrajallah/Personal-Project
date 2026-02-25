@@ -10,7 +10,5 @@ public interface UserService {
 
     List<UsersDTO> getUsers();
 
-    void deleteUser(Integer id) throws UserNotFoundException;
-
     UsersDTO updateUser(Integer id, UsersDTO dto);
 }

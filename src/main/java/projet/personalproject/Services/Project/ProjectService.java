@@ -8,6 +8,7 @@ import java.util.List;
 public interface ProjectService {
 
     ProjectDTO createProject(ProjectDTO projectDTO);
+
     List<ProjectDTO> getProjects();
 
     ProjectDTO getProjectByName(String projectName) throws ProjectNotFoundException;
